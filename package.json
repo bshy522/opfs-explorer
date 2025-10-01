@@ -1,0 +1,67 @@
+{
+  "name": "@alipay/opfs-explorer",
+  "version": "1.0.0",
+  "description": "OPFS Explorer - 浏览器插件，用于管理和编辑 OPFS 文件系统",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:vite": "vite build",
+    "dev": "vite build --watch",
+    "preview": "vite preview",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "package": "npm run build && cd dist && zip -r ../opfs-explorer.zip .",
+    "prepare": "husky",
+    "pre-commit": "lint-staged"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.0",
+    "@monaco-editor/loader": "^1.5.0",
+    "@monaco-editor/react": "^4.7.0",
+    "antd": "^5.0.0",
+    "monaco-editor": "^0.53.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "@types/chrome": "^0.1.12",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0"
+  },
+  "keywords": [
+    "browser-extension",
+    "opfs",
+    "file-explorer",
+    "code-editor",
+    "chrome-extension"
+  ],
+  "author": "Alipay",
+  "license": "MIT",
+  "repository": "git@code.alipay.com:yfd-air/muse-browser-monorepo.git",
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "biome check --write --unsafe",
+      "biome format --write"
+    ],
+    "*.{ts,js}": [
+      "biome check --write --unsafe",
+      "biome format --write"
+    ],
+    "package.json": [
+      "biome format --write"
+    ],
+    "tsconfig.json": [
+      "biome format --write"
+    ]
+  }
+}
