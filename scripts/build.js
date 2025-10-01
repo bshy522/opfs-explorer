@@ -82,25 +82,25 @@ try {
   }
 
   // 检查是否有实际的图标文件，如果没有就创建占位符
-  const iconSizes = [16, 32, 48, 128];
-  const hasIcons = iconSizes.some((size) =>
-    fs.existsSync(path.join(distIcons, `icon-${size}.png`))
-  );
+  // const iconSizes = [16, 32, 48, 128];
+  // const hasIcons = iconSizes.some((size) =>
+  //   fs.existsSync(path.join(distIcons, `icon-${size}.png`))
+  // );
 
-  if (!hasIcons) {
-    console.log('🎨 创建占位符图标...');
+  // if (!hasIcons) {
+  //   console.log('🎨 创建占位符图标...');
 
-    // 创建最小的有效透明 PNG (1x1 像素)
-    const pngData = Buffer.from(
-      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChAI/hRg8HgAAAABJRU5ErkJggg==',
-      'base64'
-    );
+  //   // 创建最小的有效透明 PNG (1x1 像素)
+  //   const pngData = Buffer.from(
+  //     'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChAI/hRg8HgAAAABJRU5ErkJggg==',
+  //     'base64'
+  //   );
 
-    for (const size of iconSizes) {
-      const iconPath = path.join(distIcons, `icon-${size}.png`);
-      fs.writeFileSync(iconPath, pngData);
-    }
-  }
+  //   for (const size of iconSizes) {
+  //     const iconPath = path.join(distIcons, `icon-${size}.png`);
+  //     fs.writeFileSync(iconPath, pngData);
+  //   }
+  // }
 
   // 复制 Monaco Editor 的静态资源
   const monacoSrc = path.join(__dirname, '../node_modules/monaco-editor/dev/vs');

@@ -53,6 +53,10 @@
       "biome check --write --unsafe",
       "biome format --write"
     ],
+    "scripts/**/*.{js,ts}": [
+      "biome check --write --unsafe",
+      "biome format --write"
+    ],
     "*.{ts,js}": [
       "biome check --write --unsafe",
       "biome format --write"

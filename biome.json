@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["src/**/*", "*.ts", "*.tsx", "*.js", "*.jsx", "package.json", "tsconfig.json", "vite.config.ts"],
+    "includes": ["src/**/*", "scripts/**/*", "*.ts", "*.tsx", "*.js", "*.jsx", "package.json", "tsconfig.json", "vite.config.ts"],
     "maxSize": 1048576
   },
   "formatter": {
