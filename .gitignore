@@ -24,7 +24,7 @@ ehthumbs.db
 Thumbs.db
 
 # IDE
-settings.local.json
+.claude/settings.local.json
 
 # Lock files (use tnpm)
 package-lock.json
