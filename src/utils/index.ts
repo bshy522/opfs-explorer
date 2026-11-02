@@ -127,15 +127,19 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
 
 /**
  * 格式化文件大小
+ *
+ * 支持 Bytes/KB/MB/GB/TB/PB；超出 PB 的有限值以 PB 兜底。
+ * 非有限值（NaN、Infinity、-Infinity）与非正数统一返回 `0 Bytes`，
+ * 小于 1 的正数按 Bytes 展示，正常值保留最多两位小数。
  */
 export function formatFileSize(bytes: number): string {
-  if (bytes === 0) {
+  if (!Number.isFinite(bytes) || bytes <= 0) {
     return '0 Bytes';
   }
 
   const k = 1024;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
+  const i = Math.min(Math.max(Math.floor(Math.log(bytes) / Math.log(k)), 0), sizes.length - 1);
 
   return `${Number.parseFloat((bytes / k ** i).toFixed(2))} ${sizes[i]}`;
 }
